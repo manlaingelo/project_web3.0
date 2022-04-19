@@ -3,6 +3,7 @@ export { default as Navbar } from "./Navbar";
 export { default as Welcome } from "./Welcome";
 export { default as Footer } from "./Footer";
 export { default as Services } from "./Services";
+export { default as SidebarIcons } from "./SidebarIcons";
 export { default as Transactions } from "./Transactions";
 export { default as Evidences } from "./Evidences";
 export { default as UploadDnD } from "./UploadDnD";

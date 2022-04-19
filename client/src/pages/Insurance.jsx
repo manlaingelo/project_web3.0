@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Transactions } from "../components";
+import { Transactions, SidebarIcons } from "../components";
 import { Link } from "react-router-dom";
 
 import logo from "../../images/logo.png";
 
 const Insurance = () => {
-  const sidebarHandler = () => {};
-
-  const [selectedIdx, setSelectedIdx] = useState(0);
+  const [isShow, setIsShow] = useState(false);
+  const sidebarHandler = () => {
+    setIsShow(!isShow);
+  };
 
   return (
     <div className="flex flex-no-wrap min-h-screen">
@@ -16,7 +17,9 @@ const Insurance = () => {
       <div className="w-64 absolute sm:relative bg-gray-800 shadow md:min-h-screen flex-col justify-between hidden sm:flex">
         <div className="px-8 h-full flex flex-col">
           <div className="h-16 w-full flex items-center">
-            <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+            <Link to="/">
+              <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+            </Link>
           </div>
           <ul className="mt-12">
             <li className="flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6">
@@ -201,6 +204,127 @@ const Insurance = () => {
             </li>
           </ul>
         </div>
+      </div>
+      <div
+        className="w-64 z-40 fixed min-h-screen bg-gray-800 shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out"
+        id="mobile-nav"
+        style={isShow ? { left: "-256px" } : {}}
+      >
+        <div
+          className="h-10 w-10 bg-gray-800 absolute right-0 mt-16 -mr-10 flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer"
+          id="mobile-toggler"
+          onClick={sidebarHandler}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="icon icon-tabler icon-tabler-adjustments"
+            width={20}
+            height={20}
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="#FFFFFF"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <circle cx={6} cy={10} r={2} />
+            <line x1={6} y1={4} x2={6} y2={8} />
+            <line x1={6} y1={12} x2={6} y2={20} />
+            <circle cx={12} cy={16} r={2} />
+            <line x1={12} y1={4} x2={12} y2={14} />
+            <line x1={12} y1={18} x2={12} y2={20} />
+            <circle cx={18} cy={7} r={2} />
+            <line x1={18} y1={4} x2={18} y2={5} />
+            <line x1={18} y1={9} x2={18} y2={20} />
+          </svg>
+        </div>
+        <div className="px-8 h-full flex flex-col relative">
+          <div className="h-16 w-full flex items-center">
+            <Link to="/">
+              <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+            </Link>
+          </div>
+          <ul className="mt-12">
+            <li className="flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6">
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-grid"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <rect x={4} y={4} width={6} height={6} rx={1} />
+                  <rect x={14} y={4} width={6} height={6} rx={1} />
+                  <rect x={4} y={14} width={6} height={6} rx={1} />
+                  <rect x={14} y={14} width={6} height={6} rx={1} />
+                </svg>
+                <Link to="/dashboard">
+                  <span className="text-sm ml-2">Самбар</span>
+                </Link>
+              </div>
+              <div className="py-1 px-3 bg-gray-700 rounded text-gray-500 flex items-center justify-center text-xs">
+                5
+              </div>
+            </li>
+            <li className="flex w-full justify-between text-gray-300 hover:text-gray-500 cursor-pointer items-center mb-6">
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-puzzle"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
+                </svg>
+                <Link to="/insurance">
+                  <span className="text-sm ml-2">Даатгалууд</span>
+                </Link>
+              </div>
+              <div className="py-1 px-3 bg-gray-700 rounded text-gray-500 flex items-center justify-center text-xs">
+                8
+              </div>
+            </li>
+            <li className="flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6">
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-compass"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                  <circle cx={12} cy={12} r={9} />
+                </svg>
+                <Link to="/upload">
+                  <span className="text-sm ml-2">Нотолгоо</span>
+                </Link>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <SidebarIcons className="mt-96" />
       </div>
       {/* Sidebar ends */}
       {/* Remove class [ h-64 ] when adding a card block */}

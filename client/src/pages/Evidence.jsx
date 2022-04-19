@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Evidences } from "../components";
+import { Evidences, SidebarIcons } from "../components";
 import { Link } from "react-router-dom";
 
 import logo from "../../images/logo.png";
 
-const Watcher = () => {
+const Evidence = () => {
   const [isShow, setIsShow] = useState(false);
   const sidebarHandler = () => {
     setIsShow(!isShow);
@@ -16,7 +16,9 @@ const Watcher = () => {
       <div className="w-64 absolute sm:relative bg-gray-800 shadow md:min-h-screen flex-col justify-between hidden sm:flex">
         <div className="px-8 h-full flex flex-col">
           <div className="h-16 w-full flex items-center">
-            <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+            <Link to="/">
+              <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+            </Link>
           </div>
           <ul className="mt-12">
             <li className="flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6">
@@ -72,8 +74,10 @@ const Watcher = () => {
               </div>
             </li>
           </ul>
-          <div className="flex justify-center mt-auto mb-4 w-full">
-            <div className="relative ">
+        </div>
+        <SidebarIcons />
+        {/* <div className="flex justify-center mt-auto mb-4 w-full">
+            <div className="relative mx-5">
               <div className="text-gray-500 absolute ml-4 inset-0 m-auto w-4 h-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +103,6 @@ const Watcher = () => {
               />
             </div>
           </div>
-        </div>
         <div className="px-8 border-t border-gray-700">
           <ul className="w-full flex items-center justify-between bg-gray-800">
             <li className="cursor-pointer text-white pt-5 pb-3">
@@ -176,7 +179,7 @@ const Watcher = () => {
               </svg>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
       <div
         className="w-64 z-40 fixed min-h-screen bg-gray-800 shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out"
@@ -212,7 +215,68 @@ const Watcher = () => {
             <line x1={18} y1={9} x2={18} y2={20} />
           </svg>
         </div>
-        
+        <div className="px-8 h-full flex flex-col relative">
+          <div className="h-16 w-full flex items-center">
+            <Link to="/">
+              <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+            </Link>
+          </div>
+          <ul className="mt-12">
+            <li className="flex w-full justify-between text-gray-600 hover:text-gray-500 cursor-pointer items-center mb-6">
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-grid"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <rect x={4} y={4} width={6} height={6} rx={1} />
+                  <rect x={14} y={4} width={6} height={6} rx={1} />
+                  <rect x={4} y={14} width={6} height={6} rx={1} />
+                  <rect x={14} y={14} width={6} height={6} rx={1} />
+                </svg>
+                <Link to="/watcher">
+                  <span className="text-sm ml-2">Гүйлгээнүүд</span>
+                </Link>
+              </div>
+              <div className="py-1 px-3 bg-gray-700 rounded text-gray-500 flex items-center justify-center text-xs">
+                8
+              </div>
+            </li>
+
+            <li className="flex w-full justify-between text-gray-300 hover:text-gray-500 cursor-pointer items-center mb-6">
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-compass"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <polyline points="8 16 10 10 16 8 14 14 8 16" />
+                  <circle cx={12} cy={12} r={9} />
+                </svg>
+                <Link to="/evidence">
+                  <span className="text-sm ml-2">Ирсэн Хүсэлтүүд</span>
+                </Link>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <SidebarIcons className="mt-96" />
       </div>
       {/* Sidebar ends */}
       <div className="w-full h-full">
@@ -223,4 +287,4 @@ const Watcher = () => {
   );
 };
 
-export default Watcher;
+export default Evidence;
