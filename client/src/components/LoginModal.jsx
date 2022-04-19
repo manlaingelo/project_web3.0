@@ -9,7 +9,7 @@ const clientData = {
 };
 
 const watcherData = {
-  email: "client@client.com",
+  email: "watcher@watcher.com",
   password: "password",
 };
 

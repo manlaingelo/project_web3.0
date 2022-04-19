@@ -104,7 +104,7 @@ const Welcome = () => {
               </div>
             </div>
           </div>
-          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+          {/* <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
             <Input
               placeholder="Address To"
               name="addressTo"
@@ -143,7 +143,7 @@ const Welcome = () => {
                 Send now
               </button>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

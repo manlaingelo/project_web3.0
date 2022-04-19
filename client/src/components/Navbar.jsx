@@ -13,19 +13,19 @@ const NavBarItem = ({ title, classprops }) => (
 
 const navbarItems = [
   {
-    path: "/service",
+    path: "/",
     name: "Үйлчилгээ",
   },
   {
-    path: "/service",
+    path: "/",
     name: "Мэдээлэл",
   },
   {
-    path: "/service",
+    path: "/",
     name: "Зөвөлгөө",
   },
   {
-    path: "/service",
+    path: "/",
     name: "Холбоо барих",
   },
 ];
