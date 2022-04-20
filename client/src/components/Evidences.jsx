@@ -234,6 +234,11 @@ const MyModal = (props) => {
       });
   };
 
+  const handleApprove = () => {
+    props.approve(data?.id);
+    props.closeModal();
+  };
+
   return (
     <>
       {/* <div className="fixed inset-0 flex items-center justify-center">
@@ -344,7 +349,7 @@ const MyModal = (props) => {
                       />
                     </div>
                   </div>
-                  {currentAccount ? (
+                  {currentAccount && (
                     <div className="mt-auto h-96 p-5 sm:w-5/6 w-full flex flex-col justify-between items-center rounded-lg">
                       <Input
                         placeholder="Address To"
@@ -379,23 +384,14 @@ const MyModal = (props) => {
                         <button
                           type="button"
                           onClick={handleSubmit}
-                          className="inline-flex justify-center px-4 py-2 text-sm font-semibold text-white bg-green-600 border border-transparent rounded-md hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                          className="inline-flex justify-center ring-offset-0 px-4 py-2 text-sm font-semibold 
+                                   text-white bg-green-600 border border-transparent rounded-md hover:bg-slate-800 
+                                     focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                         >
                           Approve
                         </button>
                       )}
                     </div>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={connectWallet}
-                      className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
-                    >
-                      <AiFillPlayCircle className="text-white mr-2" />
-                      <p className="text-white text-base font-semibold">
-                        Connect Wallet
-                      </p>
-                    </button>
                   )}
                 </div>
 
@@ -407,6 +403,15 @@ const MyModal = (props) => {
                   >
                     Reject
                   </button>
+                  {!currentAccount && (
+                    <button
+                      type="button"
+                      onClick={handleApprove}
+                      className="ml-5 inline-flex justify-center px-4 py-2 text-sm font-semibold text-white bg-green-600 border border-transparent rounded-md hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    >
+                      Approve
+                    </button>
+                  )}
                 </div>
               </div>
             </Transition.Child>
